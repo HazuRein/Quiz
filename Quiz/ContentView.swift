@@ -70,7 +70,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Set Kanji Saya")
+            .navigationTitle("Set Kanji")
             // Tujuan navigasi untuk KanjiSet.
             .navigationDestination(for: KanjiSet.self) { kanjiSet in
                 // Pastikan KanjiSet yang diteruskan memiliki item sebelum memulai kuis.

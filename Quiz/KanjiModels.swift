@@ -35,3 +35,40 @@ class Kanji {
         self.meaning = meaning
     }
 }
+
+// Struktur untuk informasi file JSON Kanji, digunakan oleh DataManager.
+struct KanjiFileInfo: Identifiable {
+    let id = UUID() // Diperlukan jika Identifiable.
+    let level: String
+    let files: [String]
+}
+
+// Struktur untuk merepresentasikan data dari file JSON.
+// Pastikan nama field dan CodingKeys sesuai dengan struktur JSON Anda.
+struct KanjiJSONData: Codable {
+    var questionText: String
+    var questionType: String
+    var option1: String
+    var option2: String?
+    var option3: String?
+    var option4: String?
+    var option5: String?
+    var correctAnswer: Int
+    var timeInSeconds: Int
+    var imageLink: String?
+    var answerExplanation: String
+    
+    enum CodingKeys: String, CodingKey {
+        case questionText = "Question Text"
+        case questionType = "Question Type"
+        case option1 = "Option 1"
+        case option2 = "Option 2"
+        case option3 = "Option 3"
+        case option4 = "Option 4"
+        case option5 = "Option 5"
+        case correctAnswer = "Correct Answer"
+        case timeInSeconds = "Time in seconds"
+        case imageLink = "Image Link"
+        case answerExplanation = "Answer explanation"
+    }
+}
